@@ -168,3 +168,90 @@ To avoid SSL warnings on HTTPS sites:
         Import the .cer file
 
         Trust it for identifying websites
+🔧 Setting Up and Using SQLMap
+✅ 1. What is sqlmap?
+
+sqlmap is an open-source penetration testing tool that automates the process of detecting and exploiting SQL injection (SQLi) flaws and taking over database servers.
+✅ 2. Installation
+🐧 On Kali Linux (pre-installed):
+
+sqlmap --version
+
+If not installed:
+
+sudo apt update
+sudo apt install sqlmap
+
+💻 On Ubuntu/Debian/Linux:
+
+sudo apt update
+sudo apt install sqlmap
+
+🪟 On Windows:
+
+    Install Python from python.org
+
+    Download sqlmap:
+
+        https://github.com/sqlmapproject/sqlmap
+
+    Extract and run:
+
+cd sqlmap
+python sqlmap.py --help
+
+✅ 3. Target Setup: Use DVWA in Low Security Mode
+
+    Go to http://localhost/dvwa/
+
+    Login (default: admin / password)
+
+    Set Security Level to Low under DVWA Security.
+
+✅ 4. Run Basic SQLMap Test
+⚠️ Get a Vulnerable URL from DVWA:
+
+Go to SQL Injection module in DVWA. You’ll see a URL like:
+
+http://localhost/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit
+
+Copy that full URL with parameters.
+✅ 5. Using SQLMap from Command Line
+
+Basic syntax:
+
+sqlmap -u "http://localhost/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit" --cookie="security=low; PHPSESSID=your_session_id"
+
+🔍 To Get Your PHPSESSID Cookie:
+
+    In Firefox, press F12 > Storage > Cookies > localhost
+
+    Copy the PHPSESSID value and include it in the --cookie flag.
+
+✅ 6. Useful SQLMap Options
+
+    --dbs → List available databases
+
+    -D database_name --tables → List tables in a database
+
+    -D db_name -T table_name --columns → Show columns in a table
+
+    --dump → Dump data
+
+    --risk=3 --level=5 → Test more thoroughly
+
+Example:
+
+sqlmap -u "http://localhost/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit" --cookie="security=low; PHPSESSID=abcd1234" --dbs
+
+✅ 7. Automate and Export Results
+
+Save output to file:
+
+sqlmap -u "..." --cookie="..." --dbs --batch --output-dir=output/
+
+✅ 8. Safety and Ethics Reminder
+
+Only use sqlmap on applications you own or have explicit permission to test. Unauthorized scanning is illegal and unethical.
+
+
