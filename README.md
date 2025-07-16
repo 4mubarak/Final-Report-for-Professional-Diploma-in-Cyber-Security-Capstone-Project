@@ -254,4 +254,7 @@ sqlmap -u "..." --cookie="..." --dbs --batch --output-dir=output/
 
 Only use sqlmap on applications you own or have explicit permission to test. Unauthorized scanning is illegal and unethical.
 
+# ScreenShorts
+https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/froxy%20proxy.png?raw=true
+
 
